@@ -1,11 +1,11 @@
-#include <delay.h>
+#include "delay.h"
 
 void delay(volatile long int iter)
 {
-	int temp = iter;
-	while (temp != 0)
+	for (int i = 0; i < iter; i++)
 	{
-		temp--;
+		i--;
+		i++;
 	}
 	return;
 }

@@ -1,6 +1,6 @@
-#include <delay.h>
+#include "delay.h"
 
-#define BLINK_DELAY 100000
+#define BLINK_DELAY 1000000
 // dereferencing the pointer of the register pointer for port b
 // note: uint8_t is equivalent to the arduino "byte" type
 // also equivalent to unsigned char
