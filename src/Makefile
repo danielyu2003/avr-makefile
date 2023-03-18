@@ -18,7 +18,7 @@
 
 CC=avr-gcc
 # Consider including -S to observe the generated assembly 
-CFLAGS=-Os -Wall -Wextra -Werror=implicit -I../include
+CFLAGS=-Os -Wall -Wextra -Werror=implicit -I../inc
 
 SOURCES=$(wildcard *.c)
 OBJECTS=$(addprefix obj/,$(notdir $(SOURCES:.c=.o)))
