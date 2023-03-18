@@ -1,11 +1,29 @@
 # Generic makefile for avr projects
 
+# Your project structure should look like
+
+# proj
+# |_include
+# |	|_some_header.h
+# |_src
+# | |_project
+# | |_project.hex
+# | |_project.c
+# | |_some_header.c
+# | |_Makefile
+# | |_obj
+# |   |_project.o
+# |   |_some_header.o
+
+
 CC=avr-gcc
+# Consider including -S to observe the generated assembly 
 CFLAGS=-Os -Wall -Wextra -Werror=implicit -I../include
 
 SOURCES=$(wildcard *.c)
 OBJECTS=$(addprefix obj/,$(notdir $(SOURCES:.c=.o)))
 
+# to change project name
 EXECUTABLE=blinky
 
 MCU=atmega328p
