@@ -7,8 +7,8 @@
 #define PORT_B *((volatile unsigned char*) 0x25) 
 // dereferencing the pointer of the data direction register for port b
 #define DDR_B *((volatile unsigned char*) 0x24)
-
-#define PIN_5 0b00100000
+// 0b00100000
+#define PIN_5 (1 << 5)
 
 int main()
 {
