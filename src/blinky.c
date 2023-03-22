@@ -1,27 +1,30 @@
+/**
+ * Daniel Yu
+ * Basic blinky for the Atmega328p
+ * Last modified: 3/21/23
+ **/
+
 #include "delay.h"
 
 #define BLINK_DELAY 1000000
-// dereferencing the pointer of the register pointer for port b
-// note: uint8_t is equivalent to the arduino "byte" type
-// also equivalent to unsigned char
-#define PORT_B *((volatile unsigned char*) 0x25) 
-// dereferencing the pointer of the data direction register for port b
-#define DDR_B *((volatile unsigned char*) 0x24)
-// 0b00100000
-#define PIN_5 (1 << 5)
+
+// note: unsigned char is equivalent to the arduino "byte" type
+
+#define PORTB *((volatile unsigned char*) 0x25) 	// dereferencing the register for port b 
+#define DDRB *((volatile unsigned char*) 0x24) 		// dereferencing the data direction register for port b
+#define PIN5 (1 << 5) 								// 0b00100000
 
 int main()
 {
-	DDR_B |= PIN_5; // sets pin 5 as an output pin
-	// where the built-in LED on the arduino uno is!
+	// Note: project done on an Arduino Uno development board
+
+	DDRB |= PIN5; 									// sets pin 5 as an output pin
 
 	while(1)
 	{
-		// drive up
-		PORT_B |= PIN_5;
+		PORTB |= PIN5;
   		delay(BLINK_DELAY);
-  		// reset
-  		PORT_B &= ~(PIN_5);
+  		PORTB &= ~(PIN5);
   		delay(BLINK_DELAY);
 	}
 }
